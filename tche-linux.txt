@@ -1,0 +1,51 @@
+ while true; do curl localhost:8080/ola; done
+
+project  api-with-quarkus [devBage]
+
+
+
+mvn io.quarkus:quarkus-maven-plugin:0.18.0:create 
+
+mvn clean package -Pnative
+
+./mvnw compile quarkus:dev:
+
+
+
+
+mvn io.quarkus:quarkus-maven-plugin:0.23.2:create \
+ -DprojectGroupId=br.com.sprint \
+ -DprojectArtifactId=core \
+ -DclassName="br.com.sprint.core.resource.AdminResource" \
+ -Dpath="/admin"
+
+
+
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm-panache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
+    </dependency>
+
+quarkus.datasource.url=jdbc:postgresql://localhost:5432/tche
+quarkus.datasource.driver=org.postgresql.Driver
+quarkus.datasource.username=postgres
+quarkus.datasource.password=postgres
+quarkus.hibernate-orm.database.generation=update
+quarkus.hibernate-orm.log.sql=true
+
