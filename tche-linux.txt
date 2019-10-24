@@ -1,5 +1,8 @@
 
- while true; do curl localhost:8080/ola; done
+
+#Alteracao direto no github
+
+while true; do curl localhost:8080/ola; done
 
 project  api-with-quarkus [devBage]
 
